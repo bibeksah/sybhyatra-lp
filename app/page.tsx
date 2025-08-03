@@ -472,7 +472,6 @@ export default function SubhYatraLandingPage() {
           </div>
           <div className="border-t border-gray-800 mt-12 pt-8 text-center text-sm space-y-2">
             <p>{c.footerMadeWithLove}</p>
-            <p>Copyright reserved by Sankat Mochan Sajilo Yatra Pvt. Ltd.</p>
             <div className="flex items-center justify-center gap-2">
               <p>Powered by</p>
               <a
