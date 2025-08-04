@@ -12,6 +12,7 @@ import { Bot, Users, ShieldCheck, Map, Facebook, Twitter, Instagram, Mail, Phone
 import { joinWaitlist, getWaitlistCount } from "./actions"
 import { useInView } from "@/hooks/use-in-view"
 import { cn } from "@/lib/utils"
+import { StructuredData } from "@/components/structured-data"
 
 // --- Content Dictionary with "Made for Nepal" theme ---
 const content = {
@@ -97,7 +98,7 @@ const content = {
       },
       {
         icon: ShieldCheck,
-        title: "उन्नत सुरक्षा सुविधा��रू",
+        title: "उन्नत सुरक्षा सुविधाहरू",
         description:
           "तपाईंको सुरक्षा हाम्रो प्राथमिकता हो। हामी वास्तविक-समय ट्र्याकिङ, आपतकालीन सम्पर्कहरू, र प्रमाणित स्थानीय चालकहरू प्रस्ताव गर्दछौं।",
       },
@@ -180,7 +181,7 @@ export default function SubhYatraLandingPage() {
   }
 
   useEffect(() => {
-    const launchDate = new Date("2025-10-15T00:00:00").getTime()
+    const launchDate = new Date("2025-09-22T00:00:00").getTime()
     const timer = setInterval(() => {
       const now = new Date().getTime()
       const distance = launchDate - now
@@ -228,6 +229,7 @@ export default function SubhYatraLandingPage() {
 
   return (
     <div className="bg-slate-50 min-h-screen text-brand-dark-blue font-sans antialiased">
+      <StructuredData />
       <header
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",

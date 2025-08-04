@@ -1,0 +1,53 @@
+{
+  "name": "SubhYatra - Nepal's Local Ride-Booking App",
+  "short_name": "SubhYatra",
+  "description": "Your Ride, Your Way. The Nepali Way. Nepal's first truly local ride-booking app coming October 2025.",
+  "categories": ["transportation", "travel", "business"],
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#FFD304",
+  "background_color": "#182B48",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "start_url": "/",
+  "scope": "/",
+  "id": "subhyatra-app",
+  "shortcuts": [
+    {
+      "name": "Join Waitlist",
+      "short_name": "Waitlist",
+      "description": "Join the SubhYatra waitlist",
+      "url": "/#waitlist-form",
+      "icons": [{ "src": "/favicon-32x32.png", "sizes": "32x32" }]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/Hero.webp",
+      "sizes": "800x600",
+      "type": "image/webp",
+      "platform": "wide",
+      "label": "SubhYatra App Preview"
+    }
+  ]
+}
