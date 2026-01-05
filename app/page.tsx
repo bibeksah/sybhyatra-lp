@@ -6,13 +6,13 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Switch } from "@/components/ui/switch"
-import { Label } from "@/components/ui/label"
-import { Bot, Users, ShieldCheck, Map, Facebook, Twitter, Instagram, Mail, Phone, ArrowRight } from "lucide-react"
+import { Bot, Users, ShieldCheck, Map, ArrowRight } from "lucide-react"
 import { joinWaitlist, getWaitlistCount } from "./actions"
 import { useInView } from "@/hooks/use-in-view"
 import { cn } from "@/lib/utils"
 import { StructuredData } from "@/components/structured-data"
+import { useLanguage } from "@/contexts/LanguageContext"
+import { HowItWorks, ForRiders, ForDrivers, SafetySection, DownloadSection } from "@/components/home"
 
 // --- Content Dictionary with "Made for Nepal" theme ---
 const content = {
@@ -160,7 +160,7 @@ const FeatureCard = ({
 }
 
 export default function SubhYatraLandingPage() {
-  const [language, setLanguage] = useState<"en" | "ne">("en")
+  const { language } = useLanguage()
   const [timeLeft, setTimeLeft] = useState<Record<string, number>>({})
   // Initialize with the base count for a good initial paint
   const [waitlistCount, setWaitlistCount] = useState(5182)
@@ -169,7 +169,6 @@ export default function SubhYatraLandingPage() {
     status: "idle",
     message: "",
   })
-  const [headerVisible, setHeaderVisible] = useState(false)
 
   const c = content[language]
 
@@ -203,13 +202,6 @@ export default function SubhYatraLandingPage() {
     return () => clearInterval(timer)
   }, [])
 
-  // REMOVE the old useEffect for the fake counter.
-
-  useEffect(() => {
-    const handleScroll = () => setHeaderVisible(window.scrollY > 50)
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -228,60 +220,8 @@ export default function SubhYatraLandingPage() {
   }
 
   return (
-    <div className="bg-slate-50 min-h-screen text-brand-dark-blue font-sans antialiased">
+    <div className="bg-slate-50 text-brand-dark-blue font-sans antialiased">
       <StructuredData />
-      <header
-        className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          headerVisible ? "bg-white/80 backdrop-blur-md shadow-md" : "bg-transparent",
-        )}
-      >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <div className="flex items-center space-x-3">
-              <Image src="/logo.svg" alt="SubhYatra Logo" width={40} height={40} />
-              <span
-                className={cn(
-                  "text-2xl font-bold transition-colors",
-                  headerVisible ? "text-brand-dark-blue" : "text-white",
-                )}
-              >
-                SubhYatra
-              </span>
-            </div>
-            <div className="flex items-center space-x-3 bg-black/10 p-1 rounded-full">
-              <Label
-                htmlFor="language-toggle"
-                className={cn(
-                  "transition-colors",
-                  language === "en" ? "font-bold" : "",
-                  headerVisible ? "text-brand-dark-blue" : "text-white",
-                )}
-              >
-                EN
-              </Label>
-              <Switch
-                id="language-toggle"
-                checked={language === "ne"}
-                onCheckedChange={(checked) => setLanguage(checked ? "ne" : "en")}
-                aria-label="Toggle language"
-              />
-              <Label
-                htmlFor="language-toggle"
-                className={cn(
-                  "transition-colors",
-                  language === "ne" ? "font-bold" : "",
-                  headerVisible ? "text-brand-dark-blue" : "text-white",
-                )}
-              >
-                NE
-              </Label>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <main>
         <section className="relative bg-brand-dark-blue pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
           <div
             className="absolute inset-0 opacity-20"
@@ -359,6 +299,21 @@ export default function SubhYatraLandingPage() {
           </div>
         </section>
 
+        {/* How It Works Section */}
+        <HowItWorks language={language} />
+
+        {/* For Riders Section */}
+        <ForRiders language={language} />
+
+        {/* For Drivers Section */}
+        <ForDrivers language={language} />
+
+        {/* Safety Section */}
+        <SafetySection language={language} />
+
+        {/* Download Section */}
+        <DownloadSection language={language} />
+
         <section id="waitlist-form" className="py-20 md:py-28 bg-brand-dark-blue text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-grid-slate-100/10 [mask-image:radial-gradient(ellipse_at_center,white,transparent_70%)]"></div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -401,93 +356,6 @@ export default function SubhYatraLandingPage() {
             </div>
           </div>
         </section>
-      </main>
-
-      <footer className="bg-gray-900 text-gray-400 py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-            <div className="md:col-span-1">
-              <div className="flex items-center justify-center md:justify-start space-x-3 mb-4">
-                <Image
-                  src="/logo.svg"
-                  alt="SubhYatra Logo"
-                  width={40}
-                  height={40}
-                  className="bg-brand-yellow rounded-full"
-                />
-                <span className="text-xl font-bold text-white">SubhYatra</span>
-              </div>
-              <p className="text-sm">
-                &copy; {new Date().getFullYear()} SubhYatra. {c.footerRights}
-              </p>
-            </div>
-            <div>
-              <h4 className="font-bold text-white mb-4 uppercase tracking-wider text-sm">{c.footerContact}</h4>
-              <ul className="space-y-2 text-sm">
-                <li>
-                  <a
-                    href="mailto:contact@subhyatranepal.com"
-                    className="flex items-center justify-center md:justify-start gap-2 hover:text-brand-yellow"
-                  >
-                    <Mail size={16} /> contact@subhyatranepal.com
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="tel:+9779855042503"
-                    className="flex items-center justify-center md:justify-start gap-2 hover:text-brand-yellow"
-                  >
-                    <Phone size={16} /> +977-9855042503
-                  </a>
-                </li>
-              </ul>
-            </div>
-            {/*<div>
-              <h4 className="font-bold text-white mb-4 uppercase tracking-wider text-sm">Legal</h4>
-              <ul className="space-y-2 text-sm">
-                <li>
-                  <a href="#" className="hover:text-brand-yellow">
-                    {c.terms}
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-brand-yellow">
-                    {c.privacy}
-                  </a>
-                </li>
-              </ul>
-            </div>*/}
-            <div>
-              <h4 className="font-bold text-white mb-4 uppercase tracking-wider text-sm">Follow Us</h4>
-              <div className="flex space-x-4 justify-center md:justify-start">
-                <a href="#" className="hover:text-brand-yellow">
-                  <Facebook />
-                </a>
-                <a href="#" className="hover:text-brand-yellow">
-                  <Twitter />
-                </a>
-                <a href="#" className="hover:text-brand-yellow">
-                  <Instagram />
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-12 pt-8 text-center text-sm space-y-2">
-            <p>{c.footerMadeWithLove}</p>
-            <div className="flex items-center justify-center gap-2">
-              <p>Powered by</p>
-              <a
-                href="https://nexalaris.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-80 transition-opacity"
-              >
-                <Image src="/nexalaris-logo.svg" alt="Nexalaris Tech Logo" width={120} height={24} />
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }
