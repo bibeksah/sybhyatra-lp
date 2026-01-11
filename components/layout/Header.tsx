@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
@@ -44,7 +45,12 @@ const navLinks = [
 export function Header({ language, onLanguageChange }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
   const c = content[language];
+
+  // Use scrolled styles on non-home pages or when scrolled
+  const useScrolledStyles = isScrolled || !isHomePage;
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -61,7 +67,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled || isMobileMenuOpen
+        useScrolledStyles || isMobileMenuOpen
           ? 'bg-white/95 backdrop-blur-md shadow-md'
           : 'bg-transparent'
       )}
@@ -74,7 +80,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
             <span
               className={cn(
                 'text-2xl font-bold transition-colors',
-                isScrolled || isMobileMenuOpen ? 'text-brand-dark-blue' : 'text-white'
+                useScrolledStyles || isMobileMenuOpen ? 'text-brand-dark-blue' : 'text-white'
               )}
             >
               SubhYatra
@@ -89,7 +95,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
                 href={link.href}
                 className={cn(
                   'font-medium transition-colors hover:text-brand-yellow',
-                  isScrolled ? 'text-brand-dark-blue' : 'text-white'
+                  useScrolledStyles ? 'text-brand-dark-blue' : 'text-white'
                 )}
               >
                 {c[link.key]}
@@ -106,7 +112,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
                 className={cn(
                   'text-sm cursor-pointer transition-colors px-1',
                   language === 'en' ? 'font-bold' : '',
-                  isScrolled ? 'text-brand-dark-blue' : 'text-white'
+                  useScrolledStyles ? 'text-brand-dark-blue' : 'text-white'
                 )}
               >
                 EN
@@ -122,7 +128,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
                 className={cn(
                   'text-sm cursor-pointer transition-colors px-1',
                   language === 'ne' ? 'font-bold' : '',
-                  isScrolled ? 'text-brand-dark-blue' : 'text-white'
+                  useScrolledStyles ? 'text-brand-dark-blue' : 'text-white'
                 )}
               >
                 NE
@@ -145,9 +151,9 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
-              <X className={cn('w-6 h-6', isScrolled || isMobileMenuOpen ? 'text-brand-dark-blue' : 'text-white')} />
+              <X className={cn('w-6 h-6', useScrolledStyles || isMobileMenuOpen ? 'text-brand-dark-blue' : 'text-white')} />
             ) : (
-              <Menu className={cn('w-6 h-6', isScrolled ? 'text-brand-dark-blue' : 'text-white')} />
+              <Menu className={cn('w-6 h-6', useScrolledStyles ? 'text-brand-dark-blue' : 'text-white')} />
             )}
           </button>
         </div>
