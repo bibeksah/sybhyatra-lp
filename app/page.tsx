@@ -180,7 +180,7 @@ export default function SubhYatraLandingPage() {
   }
 
   useEffect(() => {
-    const launchDate = new Date("2025-09-22T00:00:00").getTime()
+    const launchDate = new Date("2026-01-26T00:00:00").getTime()
     const timer = setInterval(() => {
       const now = new Date().getTime()
       const distance = launchDate - now

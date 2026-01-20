@@ -105,7 +105,7 @@ export function Footer({ language }: FooterProps) {
             {/* Social Links */}
             <div className="flex space-x-4 mt-6">
               <a
-                href="https://facebook.com/subhyatra"
+                href="https://www.facebook.com/share/1Pm49zVepf/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-brand-yellow hover:text-brand-dark-blue transition-colors"
@@ -114,7 +114,7 @@ export function Footer({ language }: FooterProps) {
                 <Facebook size={18} />
               </a>
               <a
-                href="https://twitter.com/subhyatra"
+                href="https://x.com/SubhYatraNepal"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-brand-yellow hover:text-brand-dark-blue transition-colors"
@@ -123,7 +123,7 @@ export function Footer({ language }: FooterProps) {
                 <Twitter size={18} />
               </a>
               <a
-                href="https://instagram.com/subhyatra"
+                href="https://www.instagram.com/SubhYatraNepal"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-brand-yellow hover:text-brand-dark-blue transition-colors"

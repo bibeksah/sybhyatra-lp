@@ -25,7 +25,7 @@ export function StructuredData() {
       addressCountry: "NP",
       addressRegion: "Nepal",
     },
-    sameAs: ["https://facebook.com/subhyatra", "https://twitter.com/subhyatra", "https://instagram.com/subhyatra"],
+    sameAs: ["https://www.facebook.com/share/1Pm49zVepf/", "https://x.com/SubhYatraNepal", "https://www.instagram.com/SubhYatraNepal"],
     description:
       "Nepal's first truly local ride-booking app. Built in Nepal for Nepal, featuring AI-powered matching and advanced safety features.",
   }
@@ -69,7 +69,7 @@ export function StructuredData() {
       "@type": "Organization",
       name: "SubhYatra",
     },
-    datePublished: "2025-10-15",
+    datePublished: "2026-01-26",
     softwareVersion: "1.0",
     releaseNotes: "Initial launch of Nepal's local ride-booking app",
   }
@@ -79,8 +79,8 @@ export function StructuredData() {
     "@type": "Event",
     name: "SubhYatra App Launch",
     description: "The official launch of Nepal's first truly local ride-booking application",
-    startDate: "2025-10-15T00:00:00+05:45",
-    endDate: "2025-10-15T23:59:59+05:45",
+    startDate: "2026-01-26T00:00:00+05:45",
+    endDate: "2026-01-26T23:59:59+05:45",
     eventStatus: "https://schema.org/EventScheduled",
     eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
     location: {
