@@ -180,7 +180,7 @@ export default function SubhYatraLandingPage() {
   }
 
   useEffect(() => {
-    const launchDate = new Date("2026-02-10T00:00:00").getTime()
+    const launchDate = new Date("2026-02-20T00:00:00").getTime()
     const timer = setInterval(() => {
       const now = new Date().getTime()
       const distance = launchDate - now
@@ -188,11 +188,11 @@ export default function SubhYatraLandingPage() {
         distance < 0
           ? { days: 0, hours: 0, minutes: 0, seconds: 0 }
           : {
-              days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-              hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-              minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-              seconds: Math.floor((distance % (1000 * 60)) / 1000),
-            },
+            days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+            hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+            minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+            seconds: Math.floor((distance % (1000 * 60)) / 1000),
+          },
       )
     }, 1000)
 
@@ -222,140 +222,140 @@ export default function SubhYatraLandingPage() {
   return (
     <div className="bg-slate-50 text-brand-dark-blue font-sans antialiased">
       <StructuredData />
-        <section className="relative bg-brand-dark-blue pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
-          <div
-            className="absolute inset-0 opacity-20"
-            style={{
-              backgroundImage: "url('/hero-image.webp')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          ></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-dark-blue via-brand-dark-blue/80 to-transparent"></div>
+      <section className="relative bg-brand-dark-blue pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage: "url('/hero-image.webp')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        ></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark-blue via-brand-dark-blue/80 to-transparent"></div>
 
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div className="text-center lg:text-left animate-fade-in-up">
-                <div className="inline-block bg-brand-yellow/10 border border-brand-yellow/30 text-brand-yellow px-4 py-2 rounded-full text-sm font-semibold mb-4">
-                  {c.madeInNepal}
-                </div>
-                <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4 animate-text-reveal bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-                  {c.headline}
-                </h1>
-                <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-xl mx-auto lg:mx-0">{c.subheadline}</p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
-                  <Button
-                    size="lg"
-                    className="bg-brand-yellow text-brand-dark-blue hover:bg-white font-bold text-lg px-8 py-6 rounded-full shadow-lg animate-pulse-subtle"
-                    asChild
-                  >
-                    <a href="#waitlist-form">
-                      {c.joinWaitlist} <ArrowRight className="ml-2 h-5 w-5" />
-                    </a>
-                  </Button>
-                </div>
-                <div className="flex items-center justify-center lg:justify-start gap-2 text-gray-300 font-semibold">
-                  <Users className="w-5 h-5 text-brand-yellow" />
-                  <span className="font-bold text-white text-lg animate-number-flip" key={waitlistCount}>
-                    {waitlistCount.toLocaleString()}
-                  </span>
-                  <span>{c.waitlistCount}</span>
-                </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="text-center lg:text-left animate-fade-in-up">
+              <div className="inline-block bg-brand-yellow/10 border border-brand-yellow/30 text-brand-yellow px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                {c.madeInNepal}
               </div>
-              <div className="relative flex justify-center animate-fade-in-up [animation-delay:0.2s]">
-                <div className="relative w-[280px] h-[420px] md:w-[320px] md:h-[480px] transition-transform duration-300 hover:scale-105 group">
-                  <div className="absolute -inset-2 bg-white/10 rounded-3xl transform -rotate-6 group-hover:rotate-[-8deg] transition-transform duration-300"></div>
-                  <Image
-                    src="/Hero.webp"
-                    alt="SubhYatra App Mockup"
-                    layout="fill"
-                    objectFit="cover"
-                    className="rounded-3xl shadow-2xl transform rotate-3 group-hover:rotate-6 transition-transform duration-300"
-                  />
-                </div>
+              <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4 animate-text-reveal bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+                {c.headline}
+              </h1>
+              <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-xl mx-auto lg:mx-0">{c.subheadline}</p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
+                <Button
+                  size="lg"
+                  className="bg-brand-yellow text-brand-dark-blue hover:bg-white font-bold text-lg px-8 py-6 rounded-full shadow-lg animate-pulse-subtle"
+                  asChild
+                >
+                  <a href="#waitlist-form">
+                    {c.joinWaitlist} <ArrowRight className="ml-2 h-5 w-5" />
+                  </a>
+                </Button>
+              </div>
+              <div className="flex items-center justify-center lg:justify-start gap-2 text-gray-300 font-semibold">
+                <Users className="w-5 h-5 text-brand-yellow" />
+                <span className="font-bold text-white text-lg animate-number-flip" key={waitlistCount}>
+                  {waitlistCount.toLocaleString()}
+                </span>
+                <span>{c.waitlistCount}</span>
               </div>
             </div>
-            <div className="mt-20 md:mt-28">
-              <div className="flex justify-center items-center gap-4 md:gap-8 flex-wrap">
-                <CountdownCard value={timeLeft.days || 0} label={c.days} />
-                <CountdownCard value={timeLeft.hours || 0} label={c.hours} />
-                <CountdownCard value={timeLeft.minutes || 0} label={c.minutes} />
-                <CountdownCard value={timeLeft.seconds || 0} label={c.seconds} />
+            <div className="relative flex justify-center animate-fade-in-up [animation-delay:0.2s]">
+              <div className="relative w-[280px] h-[420px] md:w-[320px] md:h-[480px] transition-transform duration-300 hover:scale-105 group">
+                <div className="absolute -inset-2 bg-white/10 rounded-3xl transform -rotate-6 group-hover:rotate-[-8deg] transition-transform duration-300"></div>
+                <Image
+                  src="/Hero.webp"
+                  alt="SubhYatra App Mockup"
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-3xl shadow-2xl transform rotate-3 group-hover:rotate-6 transition-transform duration-300"
+                />
               </div>
             </div>
           </div>
-        </section>
-
-        <section className="py-20 md:py-28 bg-slate-50">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-brand-dark-blue">{c.featuresTitle}</h2>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {c.features.map((feature, index) => (
-                <FeatureCard key={index} {...feature} className={`transition-delay-[${index * 100}ms]`} />
-              ))}
+          <div className="mt-20 md:mt-28">
+            <div className="flex justify-center items-center gap-4 md:gap-8 flex-wrap">
+              <CountdownCard value={timeLeft.days || 0} label={c.days} />
+              <CountdownCard value={timeLeft.hours || 0} label={c.hours} />
+              <CountdownCard value={timeLeft.minutes || 0} label={c.minutes} />
+              <CountdownCard value={timeLeft.seconds || 0} label={c.seconds} />
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* How It Works Section */}
-        <HowItWorks language={language} />
-
-        {/* For Riders Section */}
-        <ForRiders language={language} />
-
-        {/* For Drivers Section */}
-        <ForDrivers language={language} />
-
-        {/* Safety Section */}
-        <SafetySection language={language} />
-
-        {/* Download Section */}
-        <DownloadSection language={language} />
-
-        <section id="waitlist-form" className="py-20 md:py-28 bg-brand-dark-blue text-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-grid-slate-100/10 [mask-image:radial-gradient(ellipse_at_center,white,transparent_70%)]"></div>
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-brand-yellow mb-4">{c.waitlistFormTitle}</h2>
-              <p className="text-lg text-gray-300 mb-8">{c.waitlistFormSubtitle}</p>
-              <form onSubmit={handleFormSubmit} className="relative">
-                <div className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-                  <Input
-                    type="text"
-                    placeholder={c.emailPlaceholder}
-                    className="flex-grow text-lg p-6 bg-white/90 text-brand-dark-blue placeholder:text-gray-500 rounded-full border-2 border-transparent focus:border-brand-yellow focus:ring-brand-yellow"
-                    value={contact}
-                    onChange={(e) => setContact(e.target.value)}
-                    required
-                    disabled={formState.status === "loading" || formState.status === "success"}
-                  />
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="bg-brand-yellow text-brand-dark-blue hover:bg-white font-bold text-lg p-6 rounded-full shadow-md transition-transform hover:scale-105"
-                    disabled={formState.status === "loading" || formState.status === "success"}
-                  >
-                    {formState.status === "loading" ? "Submitting..." : c.getNotified}
-                  </Button>
-                </div>
-                <p className="text-sm text-gray-400 mt-4">{c.privacyDisclaimer}</p>
-                {formState.status !== "idle" && (
-                  <p
-                    className={cn(
-                      "mt-4 font-semibold",
-                      formState.status === "success" && "text-green-400",
-                      formState.status === "error" && "text-red-400",
-                    )}
-                  >
-                    {formState.message}
-                  </p>
-                )}
-              </form>
-            </div>
+      <section className="py-20 md:py-28 bg-slate-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-dark-blue">{c.featuresTitle}</h2>
           </div>
-        </section>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {c.features.map((feature, index) => (
+              <FeatureCard key={index} {...feature} className={`transition-delay-[${index * 100}ms]`} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <HowItWorks language={language} />
+
+      {/* For Riders Section */}
+      <ForRiders language={language} />
+
+      {/* For Drivers Section */}
+      <ForDrivers language={language} />
+
+      {/* Safety Section */}
+      <SafetySection language={language} />
+
+      {/* Download Section */}
+      <DownloadSection language={language} />
+
+      <section id="waitlist-form" className="py-20 md:py-28 bg-brand-dark-blue text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-slate-100/10 [mask-image:radial-gradient(ellipse_at_center,white,transparent_70%)]"></div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-yellow mb-4">{c.waitlistFormTitle}</h2>
+            <p className="text-lg text-gray-300 mb-8">{c.waitlistFormSubtitle}</p>
+            <form onSubmit={handleFormSubmit} className="relative">
+              <div className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                <Input
+                  type="text"
+                  placeholder={c.emailPlaceholder}
+                  className="flex-grow text-lg p-6 bg-white/90 text-brand-dark-blue placeholder:text-gray-500 rounded-full border-2 border-transparent focus:border-brand-yellow focus:ring-brand-yellow"
+                  value={contact}
+                  onChange={(e) => setContact(e.target.value)}
+                  required
+                  disabled={formState.status === "loading" || formState.status === "success"}
+                />
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="bg-brand-yellow text-brand-dark-blue hover:bg-white font-bold text-lg p-6 rounded-full shadow-md transition-transform hover:scale-105"
+                  disabled={formState.status === "loading" || formState.status === "success"}
+                >
+                  {formState.status === "loading" ? "Submitting..." : c.getNotified}
+                </Button>
+              </div>
+              <p className="text-sm text-gray-400 mt-4">{c.privacyDisclaimer}</p>
+              {formState.status !== "idle" && (
+                <p
+                  className={cn(
+                    "mt-4 font-semibold",
+                    formState.status === "success" && "text-green-400",
+                    formState.status === "error" && "text-red-400",
+                  )}
+                >
+                  {formState.message}
+                </p>
+              )}
+            </form>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
